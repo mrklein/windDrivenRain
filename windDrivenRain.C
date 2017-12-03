@@ -71,10 +71,7 @@ int main(int argc, char *argv[])
         // phi is used by the inletOutlet boundary condition and Courant
         // number calculation
         surfaceScalarField phi(
-          IOobject(
-            "phi",
-            runTime.timeName(),
-            mesh),
+          IOobject("phi", runTime.timeName(), mesh),
           phirain[phase_no]);
 
         #include "alphaEqns.H"

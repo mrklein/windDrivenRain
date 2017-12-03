@@ -1,0 +1,7 @@
+= WindDrivenRain
+
+Fork of WindDriveRainFoam (http://www.carmeliet.ethz.ch/research/downloads/winddrivenrainfoam.html)
+to:
+
+- Get rid of suffix.
+- Adapt for 5.x API.

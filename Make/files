@@ -1,4 +1,4 @@
 updateValues.C
-windDrivenRainFoam.C
+windDrivenRain.C
 
-EXE = $(FOAM_USER_APPBIN)/windDrivenRainFoam
+EXE = $(FOAM_USER_APPBIN)/windDrivenRain

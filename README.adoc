@@ -5,3 +5,14 @@ to:
 
 - Get rid of suffix.
 - Adapt for 5.x API.
+
+== Build
+
+Run `wmake` in `src` folder. Binary placement does not follow OpenFOAM(R)
+convention, after compilation it can be found in `bin` folder.
+
+== Example cases
+
+`cubicBuilding` case was adapted for 5.x syntax and conventions. To preset
+velocity, pressure, and turbulence fields `simpleFoam` case is run. `Allrun`
+scripts could be used to ease things.

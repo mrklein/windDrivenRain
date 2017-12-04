@@ -12,8 +12,8 @@ surfaceScalarField phiRa(
 fvVectorMatrix UrainEqn
 (
   fvm::ddt(Urain[phase_no])
-+ fvm::div(phirain[phase_no], Urain[phase_no],"div(phirain,Urain)")
-- fvm::laplacian(nutrain, Urain[phase_no])
++ fvm::div(phirain[phase_no], Urain[phase_no], "div(phirain,Urain)")
+- fvm::laplacian(nutrain, Urain[phase_no], "laplacian(nutrain,U)")
 + fvc::div(Rca)
 
 + fvm::div(phiRa, Urain[phase_no],"div(phirain,Urain)")

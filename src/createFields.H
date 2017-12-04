@@ -3,8 +3,8 @@ Info << "Reading transportProperties" << nl << endl;
 IOdictionary transport(IOobject("transportProperties", runTime.constant(), mesh,
                                 IOobject::MUST_READ_IF_MODIFIED));
 
-dimensionedScalar Rh(transport.lookup("Rh"));
-dimensionedScalar temp(transport.lookup("temp"));
+dimensionedScalar Rh("Rh", dimVelocity, transport);
+dimensionedScalar temp("temp", dimTemperature, transport);
 dimensionedScalar rhoa("rhoa", dimDensity, 0.0);
 dimensionedScalar rhop("rhop", dimDensity, 0.0);
 dimensionedScalar mua("mua", dimMass / dimLength / dimTime, 0.0);

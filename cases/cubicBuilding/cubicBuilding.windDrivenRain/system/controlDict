@@ -1,0 +1,30 @@
+FoamFile
+{
+  version 2.0;
+  format ascii;
+  class dictionary;
+  location "system";
+  object controlDict;
+}
+
+application windDrivenRain;
+
+startFrom latestTime;
+startTime 0;
+stopAt endTime;
+endTime 1000;
+deltaT 1;
+
+writeControl timeStep;
+writeInterval 10;
+purgeWrite 0;
+writeFormat binary;
+writePrecision 10;
+writeCompression uncompressed;
+
+timeFormat general;
+timePrecision 6;
+
+runTimeModifiable true;
+
+// vi: set ft=foam et sw=2 ts=2 sts=2:

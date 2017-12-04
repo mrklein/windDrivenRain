@@ -1,0 +1,46 @@
+FoamFile
+{
+  version 2.0;
+  format ascii;
+  class dictionary;
+  location "system";
+  object fvSolution;
+}
+
+solvers
+{
+  "U.*"
+  {
+    solver PBiCG;
+    preconditioner DILU;
+    tolerance 1e-8;
+    relTol 0.1;
+  }
+
+  "alpha.*"
+  {
+    solver PBiCG;
+    preconditioner DILU;
+    tolerance 1e-9;
+    relTol 0.1;
+  }
+}
+
+SIMPLE
+{
+  nNonOrthogonalCorrectors 0;
+
+  residualControl
+  {
+    "alpha.*" 1e-6;
+    "U.*" 1e-6;
+  }
+}
+
+relaxationFactors
+{
+  "alpha.*" 0.7;
+  "U.*" 0.9;
+}
+
+// vi: set ft=foam et sw=2 ts=2 sts=2:

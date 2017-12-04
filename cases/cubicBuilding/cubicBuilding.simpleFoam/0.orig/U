@@ -1,0 +1,54 @@
+FoamFile
+{
+  version 2.0;
+  format ascii;
+  class volVectorField;
+  object U;
+}
+
+dimensions [0 1 -1 0 0 0 0];
+internalField uniform (0 0 0);
+
+boundaryField
+{
+  #include "include/ABLConditions"
+
+  top
+  {
+    type slip;
+  }
+
+  inlet
+  {
+    type atmBoundaryLayerInletVelocity;
+    Uref $Uref;
+    Zref $Href;
+    flowDir $windDirection;
+    zDir $zDirection;
+    z0 $z0;
+    value $internalField;
+    zGround $zGround;
+  }
+
+  outlet
+  {
+    type zeroGradient;
+  }
+
+  ground
+  {
+    type noSlip;
+  }
+
+  cube
+  {
+    type noSlip;
+  }
+
+  sides
+  {
+    type slip;
+  }
+}
+
+// vi: set ft=foam et sw=2 ts=2 sts=2:

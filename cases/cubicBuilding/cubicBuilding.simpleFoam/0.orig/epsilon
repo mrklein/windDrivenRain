@@ -1,0 +1,58 @@
+FoamFile
+{
+  version 2.0;
+  format ascii;
+  class volScalarField;
+  location "0";
+  object epsilon;
+}
+
+dimensions [0 2 -3 0 0 0 0];
+internalField uniform 1.125;
+
+boundaryField
+{
+  #include "include/ABLConditions"
+
+  top
+  {
+    type slip;
+  }
+
+  inlet
+  {
+    type atmBoundaryLayerInletEpsilon;
+    Uref $Uref;
+    Zref $Href;
+    zDir $zDirection;
+    z0 $z0;
+    value $internalField;
+    zGround $zGround;
+    flowDir $windDirection;
+  }
+
+  outlet
+  {
+    type zeroGradient;
+  }
+
+  ground
+  {
+    type epsilonWallFunction;
+    value uniform 1.125;
+  }
+
+  cube
+  {
+    type epsilonWallFunction;
+    value uniform 1.125;
+  }
+
+  sides
+  {
+    type slip;
+  }
+}
+
+
+// vi: set ft=foam et sw=2 ts=2 sts=2:

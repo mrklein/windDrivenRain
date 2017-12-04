@@ -1,0 +1,26 @@
+  outlet
+  {
+    type inletOutlet;
+    inletValue uniform 0;
+    value uniform 0;
+  }
+
+  ground
+  {
+    type inletOutlet;
+    inletValue uniform 0;
+    value uniform 0;
+  }
+
+  cube
+  {
+    type inletOutlet;
+    inletValue uniform 0;
+    value uniform 0;
+  }
+
+  sides
+  {
+    type slip;
+  }
+

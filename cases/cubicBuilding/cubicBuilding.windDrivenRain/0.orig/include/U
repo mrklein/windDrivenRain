@@ -1,0 +1,20 @@
+outlet
+{
+  type zeroGradient;
+}
+
+ground
+{
+  type zeroGradient;
+}
+
+cube
+{
+  type zeroGradient;
+}
+
+sides
+{
+  type slip;
+}
+

@@ -1,0 +1,29 @@
+FoamFile
+{
+  version 2.0;
+  format ascii;
+  class volScalarField;
+  object alpha17;
+}
+
+dimensions [0 0 0 0 0 0 0];
+internalField uniform 0;
+
+boundaryField
+{
+  inlet
+  {
+    type fixedValue;
+    value uniform 4.67222999079603e-19;
+  }
+
+  top
+  {
+    type fixedValue;
+    value uniform 4.67222999079603e-19;
+  }
+
+  #include "include/alpha"
+}
+
+// vi: set ft=foam et sw=2 ts=2 sts=2:

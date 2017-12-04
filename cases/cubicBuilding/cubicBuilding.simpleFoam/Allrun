@@ -1,21 +1,16 @@
 #!/bin/sh
-cd ${0%/*} || exit 1    # run from this directory
+cd ${0%/*} || exit 1
 
-# Source tutorial run functions
 . $WM_PROJECT_DIR/bin/tools/RunFunctions
 
 runApplication blockMesh
+cp -r 0.orig 0
 
-#-- Run on single processor
+## Serial run
 runApplication `getApplication`
 
-## Run in parallel
-## Decompose
+## Parallel run
 #runApplication decomposePar
-#
 #runParallel `getApplication` 8
-#
-## Reconstruct
 #runApplication reconstructPar -latestTime
 
-# ----------------------------------------------------------------- end-of-file

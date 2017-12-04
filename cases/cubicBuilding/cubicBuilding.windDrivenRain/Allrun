@@ -1,0 +1,32 @@
+#!/bin/sh
+cd ${0%/*} || exit 1
+
+. $WM_PROJECT_DIR/bin/tools/RunFunctions
+
+# Copy mesh from simpleFoam case
+cp -r ../cubicBuilding.simpleFoam/constant/polyMesh constant/
+cp -r 0.orig 0
+
+for time in $(foamListTimes -withZero -case ../cubicBuilding.simpleFoam)
+do
+    [ "$time" = "0" -o "$time" = constant ] || {
+    timeDir=$time
+    echo "Copying files U, k, epsilon, nut from directory $timeDir"
+    for f in U k epsilon nut
+    do
+        cp -v ../cubicBuilding.simpleFoam/${timeDir}/$f 0/$f
+    done
+    }
+done
+
+echo "Running changeDictionary app..."
+runApplication changeDictionary
+
+## Serial run
+runApplication ../../../bin/windDrivenRain
+
+## Parallel run
+# runApplication decomposePar
+# runParallel ../../../bin/windDrivenRain 8
+# runApplication reconstructPar -latestTime
+

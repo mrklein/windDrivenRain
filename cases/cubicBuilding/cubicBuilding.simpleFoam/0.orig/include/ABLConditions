@@ -1,0 +1,6 @@
+Uref 10.0;
+Href 10;
+z0 uniform 0.03;
+windDirection (1 0 0);
+zDirection (0 1 0);
+zGround uniform 0.0;

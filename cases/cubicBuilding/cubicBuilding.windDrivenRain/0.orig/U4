@@ -1,0 +1,35 @@
+FoamFile
+{
+  version 2.0;
+  format ascii;
+  class volVectorField;
+  object U4;
+}
+
+dimensions [0 1 -1 0 0 0 0];
+internalField uniform (1 0 0);
+
+boundaryField
+{
+  inlet
+  {
+    type mapped;
+    interpolationScheme cell;
+    setAverage false;
+    average ( 1 0 0 );
+    value uniform (1 -2.39720989619171 0);
+  }
+
+  top
+  {
+    type mapped;
+    interpolationScheme cell;
+    setAverage false;
+    average ( 1 0 0 );
+    value uniform (1 -2.39720989619171 0);
+  }
+
+  #include "include/U"
+}
+
+// vi: set ft=foam et sw=2 ts=2 sts=2:

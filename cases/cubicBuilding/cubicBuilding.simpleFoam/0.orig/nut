@@ -1,0 +1,58 @@
+FoamFile
+{
+  version 2.0;
+  format ascii;
+  class volScalarField;
+  location "0";
+  object nut;
+}
+
+dimensions [0 2 -1 0 0 0 0];
+internalField uniform 0;
+
+boundaryField
+{
+  top
+  {
+    type slip;
+  }
+
+  inlet
+  {
+    type calculated;
+    value uniform 0;
+  }
+
+  outlet
+  {
+    type calculated;
+    value uniform 0;
+  }
+
+  ground
+  {
+    type nutkRoughWallFunction;
+    Cmu 0.09;
+    kappa 0.42;
+    E 9.793;
+    Ks uniform 0.03;
+    Cs uniform 9.7;
+    value uniform 0;
+  }
+
+  cube
+  {
+    type nutkWallFunction;
+    Cmu 0.09;
+    kappa 0.42;
+    E 9.793;
+    value uniform 0;
+  }
+
+  sides
+  {
+    type slip;
+  }
+}
+
+// vi: set ft=foam et sw=2 ts=2 sts=2:

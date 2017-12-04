@@ -1,0 +1,113 @@
+FoamFile
+{
+  version 2.0;
+  format ascii;
+  class dictionary;
+  object changeDictionaryDict;
+}
+
+boundary
+{
+  inlet
+  {
+    type            mappedPatch;
+    sampleMode      nearestCell;
+    sampleRegion    region0;
+    samplePatch     none;
+    offsetMode      uniform;
+    offset          (1 0 0);
+  }
+
+  top
+  {
+    type            mappedPatch;
+    nFaces          9000;
+    startFace       1527600;
+    sampleMode      nearestCell;
+    sampleRegion    region0;
+    samplePatch     none;
+    offsetMode      uniform;
+    offset          (0 -1 0);	
+  }
+}
+
+U
+{
+  boundaryField
+  {
+    top
+    {
+      type            zeroGradient;
+    }
+
+    inlet
+    {
+      type            calculated;
+    }
+  }
+}
+
+k
+{
+  boundaryField
+  {
+    top
+    {
+      type            zeroGradient;
+    }
+
+    ground
+    {
+      type            calculated;
+    }
+
+    cube
+    {
+      type            calculated;
+    }
+  }
+}
+
+epsilon
+{
+  boundaryField
+  {
+    top
+    {
+      type            zeroGradient;
+    }
+    inlet
+    {
+      type            calculated;
+    }
+    ground
+    {
+      type            calculated;
+    }
+    cube
+    {
+      type            calculated;
+    }
+  }
+}	
+
+nut
+{
+  boundaryField
+  {
+    top
+    {
+      type            zeroGradient;
+    }
+    ground
+    {
+      type            calculated;
+    }
+    cube
+    {
+      type            calculated;
+    }
+  }
+}	
+
+// vi: set ft=foam et sw=2 ts=2 sts=2:

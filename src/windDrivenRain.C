@@ -102,9 +102,9 @@ int main(int argc, char *argv[])
     }
 
     if (runTime.outputTime()) {
-      for (int phase_no = 0; phase_no < phases.size(); ++phase_no) {
-        Urain[phase_no].write();
-        alpharain[phase_no].write();
+      forAll(phases, i) {
+        Urain[i].write();
+        alpharain[i].write();
         //Ctrain[phase_no].write();
       }
     }
@@ -116,9 +116,9 @@ int main(int argc, char *argv[])
   }
 
   Info << "Writing final output\n" << endl;
-  for (int phase_no = 0; phase_no < phases.size(); ++phase_no) {
-    Urain[phase_no].write();
-    alpharain[phase_no].write();
+  forAll(phases, i) {
+    Urain[i].write();
+    alpharain[i].write();
     //Ctrain[phase_no].write();
   }
 

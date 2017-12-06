@@ -1,18 +1,44 @@
 = WindDrivenRain
 
-Fork of WindDriveRainFoam (http://www.carmeliet.ethz.ch/research/downloads/winddrivenrainfoam.html)
-to:
+Fork of WindDriveRainFoam
+(http://www.carmeliet.ethz.ch/research/downloads/winddrivenrainfoam.html) to:
 
 - Get rid of suffix.
-- Adapt for 5.x API.
+- Adapt for OpenFOAM(R) 5.x API.
 
-== Build
+== Compilation
 
 Run `wmake` in `src` folder. Binary placement does not follow OpenFOAM(R)
-convention, after compilation it can be found in `bin` folder.
+conventions, after compilation it can be found in `bin` folder. If you would
+like to have user-wide installation, change
+
+[source,make]
+----
+EXE = ../bin/windDrivenRain
+----
+
+to
+
+[source,make]
+----
+EXE = $(FOAM_USER_APPBIN)/windDrivenRain
+----
+
+in `Make/files` file.
 
 == Example cases
 
-`cubicBuilding` case was adapted for 5.x syntax and conventions. To preset
+`cubicBuilding` cases was adapted for 5.x syntax and conventions. To preset
 velocity, pressure, and turbulence fields `simpleFoam` case is run. `Allrun`
-scripts could be used to ease things.
+scripts could be used to automate execution sequence.
+
+== Disclaimer
+
+This offering is not approved or endorsed by OpenCFD Limited, producer and
+distributor of the OpenFOAM software via www.openfoam.com, and owner of the
+OPENFOAM(R) and OpenCFD(R) trade marks.
+
+== Acknowledgement
+
+OPENFOAM(R) is a registered trade mark of OpenCFD Limited, producer and
+distributor of the OpenFOAM software via www.openfoam.com.
